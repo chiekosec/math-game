@@ -1,0 +1,26 @@
+<div
+  class="container bg-info bg-gradient position-absolute top-50 start-50 translate-middle d-flex flex-column p-4 justify-content-center align-items-center rounded-3 shadow"
+>
+
+  <h1 class="text-light fw-bold">Number Sum Game</h1>
+
+  <h2 class="d-flex justify-content-center mt-4 mb-4 fs-1">
+    {{ num1 }} + {{ num2 }} =
+    <input
+      class="w-25 ms-2 border-2 rounded-3"
+      #res
+      [ngStyle]="{'outline': 'none'}"
+      type="text"
+      inputmode="numeric"
+      pattern="[0-9]*"
+      digitOnly
+      [disabled]="alertFlag"
+      [ngClass]="{'border border-danger border-2' : incorrect}"
+    />
+  </h2>
+
+  <h1 class="text-white fs-4">{{ average | number: "1.2-2" }} seconds per solution</h1>
+</div>
+<div *ngIf="alertFlag" class="alert alert-success" role="alert">
+  Correct Answer!!!
+</div>
